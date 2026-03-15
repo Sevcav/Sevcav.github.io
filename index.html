@@ -7,14 +7,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Barlow+Condensed:wght@400;600;700&family=Barlow:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Grimdark Tactical Palette based on your design */
             --bg: #0d1208;
             --panel: #111a0d;
             --border: #253020;
             --gold: #d4a845;
             --text: #d0e8c0;
             --muted: #6a8a62;
-            --hi: #8bc34a; /* Status/Active Highlight */
+            --hi: #8bc34a;
         }
 
         body {
@@ -29,7 +28,7 @@
             min-height: 100vh;
         }
 
-        /* Subtle noise texture, matching your tactics app */
+        /* Tactical noise texture overlay */
         body::before {
             content: '';
             position: fixed;
@@ -39,15 +38,17 @@
             z-index: -1;
         }
 
-        /* Loading the new vector logo (mimicked shape) */
         .logo {
             width: 140px;
-            height: 140px;
+            height: auto;
             margin-bottom: 30px;
-            transition: transform 0.3s ease;
+            border: 2px solid var(--border); /* Adds a frame to the JPG */
+            transition: transform 0.3s ease, border-color 0.3s ease;
         }
+        
         .logo:hover {
             transform: scale(1.05);
+            border-color: var(--gold);
         }
 
         h1 {
@@ -58,6 +59,7 @@
             margin: 0 0 10px 0;
             font-size: 2.8rem;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+            text-align: center;
         }
 
         .subtitle {
@@ -68,6 +70,7 @@
             margin: 0 0 60px 0;
             font-weight: 600;
             font-size: 1.1rem;
+            text-align: center;
         }
 
         .grid {
@@ -92,7 +95,6 @@
             justify-content: space-between;
         }
 
-        /* The active gold indicator bar on the left of each card */
         .card::before {
             content: '';
             position: absolute;
@@ -153,7 +155,7 @@
 </head>
 <body>
 
-    <img src="sevcav-bb-logo.svg" alt="Sevcav Tactical Logo" class="logo">
+    <img src="Unofficial Merch Logo SVG.jpg" alt="Sevcav Tactical Logo" class="logo">
 
     <h1>Blood Bowl Hub</h1>
     <p class="subtitle">Sevcav Tactical Command</p>
