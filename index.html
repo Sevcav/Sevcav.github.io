@@ -3,56 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gaming App Portal</title>
+    <title>Sevcav | Blood Bowl Tool Hub</title>
     <style>
+        :root {
+            --bg-dark: #121212;
+            --card-bg: #1e1e1e;
+            --primary-blue: #00a2ff;
+            --accent-green: #4caf50;
+            --text-main: #e0e0e0;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #1a1a1a;
-            color: #e0e0e0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 40px;
+            margin: 0;
+            padding: 40px 20px;
         }
-        h1 { color: #ffffff; margin-bottom: 30px; }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        h1 { font-size: 2.5rem; margin-bottom: 10px; color: #fff; }
+        p.subtitle { color: #888; font-style: italic; }
+
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
             width: 100%;
-            max-width: 1000px;
+            max-width: 900px;
         }
+
         .card {
-            background: #2d2d2d;
-            border: 1px solid #444;
-            border-radius: 8px;
-            padding: 20px;
-            text-align: center;
-            transition: transform 0.2s, border-color 0.2s;
+            background: var(--card-bg);
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 25px;
             text-decoration: none;
             color: inherit;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
+
         .card:hover {
-            transform: translateY(-5px);
-            border-color: #007bff;
+            transform: translateY(-8px);
+            border-color: var(--primary-blue);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
         }
-        .card h2 { margin-top: 0; color: #007bff; }
-        .card p { font-size: 0.9em; color: #bbb; }
+
+        .card h2 { margin: 0 0 10px 0; font-size: 1.5rem; }
+        
+        /* Specific colors for specific apps */
+        .tactics-card h2 { color: var(--primary-blue); }
+        .skills-card h2 { color: var(--accent-green); }
+
+        .card p { line-height: 1.6; color: #bbb; font-size: 0.95rem; }
+
+        .badge {
+            display: inline-block;
+            margin-top: 15px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.7;
+        }
     </style>
 </head>
 <body>
 
-    <h1>My Web Apps</h1>
+    <header>
+        <h1>Blood Bowl Gaming Hub</h1>
+        <p class="subtitle">Custom tactics, tools, and reference guides for the pitch.</p>
+    </header>
 
     <div class="grid">
-        <a href="https://sevcav.github.io/BloodBowl-Pitch-Tactics/" class="card">
-            <h2>Pitch Tactics</h2>
-            <p>Interactive pitch for planning plays and positioning.</p>
+        <a href="https://sevcav.github.io/BloodBowl-Pitch-Tactics/" class="card tactics-card">
+            <div>
+                <h2>Pitch Tactics</h2>
+                <p>Interactive pitch layout for planning offensive and defensive formations. Features Tourplay team integration.</p>
+            </div>
+            <span class="badge">Advanced Tool</span>
         </a>
 
-        <a href="https://sevcav.github.io/your-new-repo/" class="card">
-            <h2>Upcoming Tool</h2>
-            <p>Description of your next smaller utility or app.</p>
+        <a href="https://sevcav.github.io/2025-BB-Skills-and-Traits-Compare-app/" class="card skills-card">
+            <div>
+                <h2>Skills & Traits</h2>
+                <p>Quick reference for the 2025 ruleset. Compare interaction chips, counters, and player synergies at a glance.</p>
+            </div>
+            <span class="badge">Reference App</span>
         </a>
     </div>
 
