@@ -10,7 +10,9 @@
             --card-bg: #1e1e1e;
             --primary-blue: #00a2ff;
             --accent-green: #4caf50;
+            --accent-orange: #ff9800;
             --text-main: #e0e0e0;
+            --text-dim: #bbbbbb;
         }
 
         body {
@@ -29,15 +31,15 @@
             margin-bottom: 50px;
         }
 
-        h1 { font-size: 2.5rem; margin-bottom: 10px; color: #fff; }
-        p.subtitle { color: #888; font-style: italic; }
+        h1 { font-size: 2.5rem; margin-bottom: 10px; color: #ffffff; }
+        p.subtitle { color: #888; font-style: italic; font-size: 1.1rem; }
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 25px;
             width: 100%;
-            max-width: 900px;
+            max-width: 1000px;
         }
 
         .card {
@@ -51,30 +53,46 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
         }
 
         .card:hover {
             transform: translateY(-8px);
-            border-color: var(--primary-blue);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.5);
         }
 
-        .card h2 { margin: 0 0 10px 0; font-size: 1.5rem; }
-        
-        /* Specific colors for specific apps */
-        .tactics-card h2 { color: var(--primary-blue); }
-        .skills-card h2 { color: var(--accent-green); }
+        .card h2 { margin: 0 0 12px 0; font-size: 1.4rem; }
+        .card p { line-height: 1.6; color: var(--text-dim); font-size: 0.95rem; margin-bottom: 15px; }
 
-        .card p { line-height: 1.6; color: #bbb; font-size: 0.95rem; }
+        /* App Specific Accent Colors */
+        .tactics-card { border-top: 4px solid var(--primary-blue); }
+        .tactics-card h2 { color: var(--primary-blue); }
+        .tactics-card:hover { border-color: var(--primary-blue); }
+
+        .skills-card { border-top: 4px solid var(--accent-green); }
+        .skills-card h2 { color: var(--accent-green); }
+        .skills-card:hover { border-color: var(--accent-green); }
+
+        .flashcard-card { border-top: 4px solid var(--accent-orange); }
+        .flashcard-card h2 { color: var(--accent-orange); }
+        .flashcard-card:hover { border-color: var(--accent-orange); }
 
         .badge {
             display: inline-block;
-            margin-top: 15px;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: bold;
             text-transform: uppercase;
             letter-spacing: 1px;
-            opacity: 0.7;
+            padding: 4px 8px;
+            background: #333;
+            border-radius: 4px;
+            align-self: flex-start;
+        }
+
+        footer {
+            margin-top: 60px;
+            color: #555;
+            font-size: 0.8rem;
         }
     </style>
 </head>
@@ -82,10 +100,11 @@
 
     <header>
         <h1>Blood Bowl Gaming Hub</h1>
-        <p class="subtitle">Custom tactics, tools, and reference guides for the pitch.</p>
+        <p class="subtitle">Custom tactics, reference tools, and player aids.</p>
     </header>
 
     <div class="grid">
+        
         <a href="https://sevcav.github.io/BloodBowl-Pitch-Tactics/" class="card tactics-card">
             <div>
                 <h2>Pitch Tactics</h2>
@@ -97,11 +116,24 @@
         <a href="https://sevcav.github.io/2025-BB-Skills-and-Traits-Compare-app/" class="card skills-card">
             <div>
                 <h2>Skills & Traits</h2>
-                <p>Quick reference for the 2025 ruleset. Compare interaction chips, counters, and player synergies at a glance.</p>
+                <p>2025 Ruleset reference. Compare interaction chips, counters, and player synergies at a glance.</p>
             </div>
-            <span class="badge">Reference App</span>
+            <span class="badge">Reference</span>
         </a>
+
+        <a href="https://sevcavhub.github.io/BloodBowl-Flashcards/" class="card flashcard-card">
+            <div>
+                <h2>Skills Flashcards</h2>
+                <p>Interactive study cards covering all 108 Blood Bowl Skills and Traits. Perfect for master-level learning.</p>
+            </div>
+            <span class="badge">Learning Aid</span>
+        </a>
+
     </div>
+
+    <footer>
+        &copy; 2026 Sevcav | Created for the Blood Bowl Community
+    </footer>
 
 </body>
 </html>
