@@ -3,136 +3,178 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sevcav | Blood Bowl Tool Hub</title>
+    <title>Blood Bowl Hub | Sevcav</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Barlow+Condensed:wght@400;600;700&family=Barlow:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-dark: #121212;
-            --card-bg: #1e1e1e;
-            --primary-blue: #00a2ff;
-            --accent-green: #4caf50;
-            --accent-orange: #ff9800;
-            --text-main: #e0e0e0;
-            --text-dim: #bbbbbb;
+            --bg: #0d1208;
+            --panel: #111a0d;
+            --border: #253020;
+            --gold: #d4a845;
+            --text: #d0e8c0;
+            --muted: #6a8a62;
+            --hi: #8bc34a;
         }
 
         body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-main);
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Barlow', sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
             margin: 0;
             padding: 40px 20px;
+            min-height: 100vh;
         }
 
-        header {
-            text-align: center;
+        /* Subtle noise texture to match tactics app */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .logo-container {
+            width: 120px;
+            height: 120px;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 10px rgba(139, 195, 74, 0.2));
+        }
+
+        h1 {
+            font-family: 'Cinzel Decorative', cursive;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .subtitle {
+            font-family: 'Barlow Condensed', sans-serif;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 3px;
             margin-bottom: 50px;
+            font-weight: 600;
         }
-
-        h1 { font-size: 2.5rem; margin-bottom: 10px; color: #ffffff; }
-        p.subtitle { color: #888; font-style: italic; font-size: 1.1rem; }
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
             width: 100%;
             max-width: 1000px;
         }
 
         .card {
-            background: var(--card-bg);
-            border: 1px solid #333;
-            border-radius: 12px;
-            padding: 25px;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            padding: 30px;
             text-decoration: none;
             color: inherit;
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 4px;
+            background: var(--border);
+            transition: background 0.3s;
         }
 
         .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 24px rgba(0,0,0,0.5);
+            background: #162211;
+            transform: translateY(-5px);
+            border-color: var(--gold);
         }
 
-        .card h2 { margin: 0 0 12px 0; font-size: 1.4rem; }
-        .card p { line-height: 1.6; color: var(--text-dim); font-size: 0.95rem; margin-bottom: 15px; }
+        .card:hover::before {
+            background: var(--gold);
+        }
 
-        /* App Specific Accent Colors */
-        .tactics-card { border-top: 4px solid var(--primary-blue); }
-        .tactics-card h2 { color: var(--primary-blue); }
-        .tactics-card:hover { border-color: var(--primary-blue); }
-
-        .skills-card { border-top: 4px solid var(--accent-green); }
-        .skills-card h2 { color: var(--accent-green); }
-        .skills-card:hover { border-color: var(--accent-green); }
-
-        .flashcard-card { border-top: 4px solid var(--accent-orange); }
-        .flashcard-card h2 { color: var(--accent-orange); }
-        .flashcard-card:hover { border-color: var(--accent-orange); }
-
-        .badge {
-            display: inline-block;
-            font-size: 0.75rem;
-            font-weight: bold;
+        .card h2 {
+            font-family: 'Barlow Condensed', sans-serif;
+            color: var(--gold);
+            font-size: 1.8rem;
+            margin: 0 0 10px 0;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            padding: 4px 8px;
-            background: #333;
-            border-radius: 4px;
-            align-self: flex-start;
+        }
+
+        .card p {
+            font-size: 1rem;
+            line-height: 1.5;
+            color: var(--text);
+            opacity: 0.8;
+        }
+
+        .status-badge {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 0.75rem;
+            color: var(--hi);
+            border: 1px solid var(--hi);
+            padding: 2px 8px;
+            margin-top: 15px;
+            display: inline-block;
+            text-transform: uppercase;
+            font-weight: bold;
         }
 
         footer {
-            margin-top: 60px;
-            color: #555;
-            font-size: 0.8rem;
+            margin-top: auto;
+            padding-top: 60px;
+            font-family: 'Barlow Condensed', sans-serif;
+            color: var(--muted);
+            letter-spacing: 1px;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Blood Bowl Gaming Hub</h1>
-        <p class="subtitle">Custom tactics, reference tools, and player aids.</p>
-    </header>
+    <div class="logo-container">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="50" r="48" fill="none" stroke="#d4a845" stroke-width="2"/>
+            <circle cx="50" cy="50" r="42" fill="none" stroke="#253020" stroke-width="1"/>
+            <path d="M30 30 L70 70 M70 30 L30 70" stroke="#d4a845" stroke-width="4" stroke-linecap="round"/>
+            <path d="M50 20 L50 80 M20 50 L80 50" stroke="#8bc34a" stroke-width="2" opacity="0.6"/>
+            <rect x="35" y="35" width="30" height="30" fill="none" stroke="#d4a845" stroke-width="2" transform="rotate(45 50 50)"/>
+        </svg>
+    </div>
+
+    <h1>Blood Bowl Hub</h1>
+    <p class="subtitle">Sevcav Tactical Command</p>
 
     <div class="grid">
         
-        <a href="https://sevcav.github.io/BloodBowl-Pitch-Tactics/" class="card tactics-card">
-            <div>
-                <h2>Pitch Tactics</h2>
-                <p>Interactive pitch layout for planning offensive and defensive formations. Features Tourplay team integration.</p>
-            </div>
-            <span class="badge">Advanced Tool</span>
+        <a href="https://sevcav.github.io/BloodBowl-Pitch-Tactics/" class="card">
+            <h2>Pitch Tactics</h2>
+            <p>Interactive formation planner with TourPlay PDF integration. Analyze your team silhouettes and master the pitch.</p>
+            <span class="status-badge">System Online</span>
         </a>
 
-        <a href="https://sevcav.github.io/2025-BB-Skills-and-Traits-Compare-app/" class="card skills-card">
-            <div>
-                <h2>Skills & Traits</h2>
-                <p>2025 Ruleset reference. Compare interaction chips, counters, and player synergies at a glance.</p>
-            </div>
-            <span class="badge">Reference</span>
+        <a href="https://sevcav.github.io/2025-BB-Skills-and-Traits-Compare-app/" class="card">
+            <h2>Skills & Traits</h2>
+            <p>Reference guide for the 2025 season. Compare hard-counters, synergies, and interaction chips.</p>
+            <span class="status-badge">Reference Data</span>
         </a>
 
-        <a href="https://sevcavhub.github.io/BloodBowl-Flashcards/" class="card flashcard-card">
-            <div>
-                <h2>Skills Flashcards</h2>
-                <p>Interactive study cards covering all 108 Blood Bowl Skills and Traits. Perfect for master-level learning.</p>
-            </div>
-            <span class="badge">Learning Aid</span>
+        <a href="https://sevcavhub.github.io/BloodBowl-Flashcards/" class="card">
+            <h2>Flashcards</h2>
+            <p>Master the 108 essential Skills and Traits. Training tools for the aspiring Star Player.</p>
+            <span class="status-badge">Training Module</span>
         </a>
 
     </div>
 
     <footer>
-        &copy; 2026 Sevcav | Created for the Blood Bowl Community
+        &copy; 2026 SEVCAV TACTICAL | BB2025 COMPLIANT
     </footer>
 
 </body>
