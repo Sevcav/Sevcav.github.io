@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Bowl Hub | Sevcav</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Barlow+Condensed:wght@400;600;700&family=Barlow:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0d1208;
+            --panel: #111a0d;
+            --border: #253020;
+            --gold: #d4a845;
+            --text: #d0e8c0;
+            --muted: #6a8a62;
+            --hi: #8bc34a;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Barlow', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 60px 20px;
+            min-height: 100vh;
+        }
+
+        /* Tactical noise texture overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .logo {
+            width: 140px;
+            height: auto;
+            margin-bottom: 30px;
+            border: 2px solid var(--border); /* Adds a frame to the JPG */
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        
+        .logo:hover {
+            transform: scale(1.05);
+            border-color: var(--gold);
+        }
+
+        h1 {
+            font-family: 'Cinzel Decorative', cursive;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 0 0 10px 0;
+            font-size: 2.8rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+            text-align: center;
+        }
+
+        .subtitle {
+            font-family: 'Barlow Condensed', sans-serif;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin: 0 0 60px 0;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 1000px;
+        }
+
+        .card {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            padding: 30px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; height: 100%; width: 4px;
+            background: var(--border);
+            transition: background 0.3s;
+        }
+
+        .card:hover {
+            background: #162211;
+            transform: translateY(-5px);
+            border-color: var(--gold);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .card:hover::before {
+            background: var(--gold);
+        }
+
+        .card h2 {
+            font-family: 'Barlow Condensed', sans-serif;
+            color: var(--gold);
+            font-size: 1.8rem;
+            margin: 0 0 10px 0;
+            text-transform: uppercase;
+        }
+
+        .card p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--text);
+            opacity: 0.85;
+            margin: 0 0 20px 0;
+        }
+
+        .status-badge {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 0.75rem;
+            color: var(--hi);
+            border: 1px solid var(--hi);
+            padding: 3px 10px;
+            display: inline-block;
+            text-transform: uppercase;
+            font-weight: bold;
+            align-self: flex-start;
+        }
+
+        footer {
+            margin-top: auto;
+            padding-top: 80px;
+            font-family: 'Barlow Condensed', sans-serif;
+            color: var(--muted);
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+
+    <img src="Unofficial Merch Logo SVG.jpg" alt="Sevcav Tactical Logo" class="logo">
+
+    <h1>Blood Bowl Hub</h1>
+    <p class="subtitle">Sevcav Tactical Command</p>
+
+    <div class="grid">
+        
+        <a href="https://sevcav.github.io/BloodBowl-Pitch-Tactics/" class="card">
+            <div>
+                <h2>Pitch Tactics</h2>
+                <p>Interactive formation planner with TourPlay PDF integration. Analyze team silhouettes and master the pitch.</p>
+            </div>
+            <span class="status-badge">Tactical System Active</span>
+        </a>
+
+        <a href="https://sevcav.github.io/2025-BB-Skills-and-Traits-Compare-app/" class="card">
+            <div>
+                <h2>Skills & Traits</h2>
+                <p>Reference guide for the 2025 season. Compare hard-counters, synergies, and interaction chips.</p>
+            </div>
+            <span class="status-badge">Reference Module Loaded</span>
+        </a>
+
+        <a href="https://sevcavhub.github.io/BloodBowl-Flashcards/" class="card">
+            <div>
+                <h2>Skills Flashcards</h2>
+                <p>Master the 108 essential Skills and Traits. Training tools for the aspiring Star Player.</p>
+            </div>
+            <span class="status-badge">Training Simulation Online</span>
+        </a>
+
+    </div>
+
+    <footer>
+        &copy; 2026 SEVCAV TACTICAL | BB2025 COMPLIANT
+    </footer>
+
+</body>
+</html>
