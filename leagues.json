@@ -1,16 +1,23 @@
 [
   {
-    "key":        "cobb-s03",
-    "name":       "Modern Games COBB S03",
-    "slug":       "cobb-s03-sponsored-by-modern-games",
+    "key": "cobb-s03",
+    "name": "Modern Games COBB S03",
+    "slug": "cobb-s03-sponsored-by-modern-games",
     "categoryId": "23924",
-    "phaseId":    "31846"
+    "phaseId": "31846"
   },
   {
-    "key":        "obbl-spring-2026",
-    "name":       "OBBL Spring 2026",
-    "slug":       "obbl-spring-2026",
+    "key": "obbl-spring-2026",
+    "name": "OBBL Spring 2026",
+    "slug": "obbl-spring-2026",
     "categoryId": "24498",
-    "phaseId":    "32323"
+    "phaseId": "32323"
+  },
+  {
+    "key": "ordobowl-spring-league",
+    "name": "Ordobowl Spring league",
+    "slug": "ordobowl-spring-league",
+    "categoryId": "13625",
+    "phaseId": "18501"
   }
 ]
