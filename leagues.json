@@ -12,12 +12,12 @@
     "slug":       "obbl-spring-2026",
     "categoryId": "24498",
     "phaseId":    "32323"
-  }
+  },
   {
-  "key": "ordobowl-spring-league",
-  "name": "Ordobowl Spring league",
-  "slug": "ordobowl-spring-league",
-  "categoryId": "13625",
-  "phaseId": "18501"
-}
+    "key":        "ordobowl-spring-league",
+    "name":       "Ordobowl Spring League",
+    "slug":       "ordobowl-spring-league",
+    "categoryId": "13625",
+    "phaseId":    "18501"
+  }
 ]
