@@ -1,0 +1,16 @@
+[
+  {
+    "key":        "cobb-s03",
+    "name":       "Modern Games COBB S03",
+    "slug":       "cobb-s03-sponsored-by-modern-games",
+    "categoryId": "23924",
+    "phaseId":    "31846"
+  },
+  {
+    "key":        "obbl-spring-2026",
+    "name":       "OBBL Spring 2026",
+    "slug":       "obbl-spring-2026",
+    "categoryId": "24498",
+    "phaseId":    "32323"
+  }
+]
