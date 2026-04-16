@@ -7,6 +7,12 @@
     "phaseId": "31846"
   },
   {
+  "name": "COBBled Together Cup",
+  "slug": "cobbled-together-cup",
+  "categoryId": 24899,
+  "phaseId": 33027
+},
+  {
     "key": "obbl-spring-2026",
     "name": "OBBL Spring 2026",
     "slug": "obbl-spring-2026",
