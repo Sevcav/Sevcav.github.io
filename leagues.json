@@ -1,24 +1,9 @@
 [
   {
-    "key": "cobb-s03",
-    "name": "Modern Games COBB S03",
-    "slug": "cobb-s03-sponsored-by-modern-games",
-    "categoryId": "23924",
-    "phaseId": "31846",
-    "phaseIds": ["31846", "34619"]
-  },
-  {
-    "key": "cobbled-together-cup",
-    "name": "COBBled Together Cup",
-    "slug": "cobbled-together-cup",
-    "categoryId": "24899",
-    "phaseId": "33027"
-  },
-  {
-    "key": "obbl-spring-2026",
-    "name": "OBBL Spring 2026",
-    "slug": "obbl-spring-2026",
-    "categoryId": "24498",
-    "phaseId": "32323"
+    "key": "cobb-s04",
+    "name": "COBB Season 04 - Modern Games",
+    "slug": "cobb-season-04---modern-games",
+    "categoryId": "27471",
+    "phaseId": "36872"
   }
 ]
